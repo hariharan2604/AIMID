@@ -9,20 +9,21 @@ class Graph:
 
 	def BFS(self, s): 
 		queue = [] 
-		# print(self.graph)
+		print(self.graph)
 		queue.append(s)
 		# self.visited.add(s)
 		while queue: 
-			print("queue:",queue)
-			print("visited:",self.visited)
+			# print("queue:",queue)
+			# print("visited before:",self.visited)
 			s = queue.pop(0)
 			print(s,end=" ")
 			self.visited.add(s)
-			print("self.graph",self.graph[s])
+			# print("visited after:",self.visited)
+			# print("self.graph",self.graph[s])
 			for i in self.graph[s]: #For getting adjacent nodes from current node
 				if i not in self.visited: 
 					queue.append(i) 
-					# self.visited.add(s)
+			print()
 g = Graph() 
 # n=int(input("Edges:"))
 # for i in range(n):

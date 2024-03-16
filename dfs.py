@@ -1,6 +1,7 @@
 # Python3 program to print DFS traversal
 # from a given graph
 from collections import defaultdict
+from ssl import VERIFY_ALLOW_PROXY_CERTS
 
 
 # This class represents a directed graph using
@@ -17,33 +18,19 @@ class Graph:
 	# Function to add an edge to graph
 	def addEdge(self, u, v):
 		self.graph[u].append(v)
-
-	
-	# A function used by DFS
-	def DFSUtil(self, v, visited):
-
-		# Mark the current node as visited
-		# and print it
-		visited.add(v)
-		print(v, end=' ')
-
-		# Recur for all the vertices
-		# adjacent to this vertex
-		for neighbour in self.graph[v]:
-			if neighbour not in visited:
-				self.DFSUtil(neighbour, visited)
+		self.visited=set()
 
 	
 	# The function to do DFS traversal. It uses
-	# recursive DFSUtil()
-	def DFS(self, v):
-
-		# Create a set to store visited vertices
-		visited = set()
-
-		# Call the recursive helper function
-		# to print DFS traversal
-		self.DFSUtil(v, visited)
+	def DFS(self, s):
+		print(s, end=" ")
+		self.visited.add(s)
+		print("visited:",self.visited)
+		print("self.graph",self.graph[s])
+		for n in self.graph[s]:
+			if n not in self.visited:
+				self.DFS(n)
+		print()
 
 
 # Driver's code
