@@ -17,7 +17,7 @@ class Graph:
         # print(self.graph)
         while pq:
             _, current_node = heapq.heappop(pq)
-            print(current_node)
+            print(current_node,end=" ")
             if current_node == goal:
                 return True  # Goal found
             visited.add(current_node)
@@ -48,6 +48,6 @@ goal_node = 'F'
 found = graph.greedy_best_first_search(start_node, goal_node, heuristic)
 
 if found:
-    print(f"Goal '{goal_node}' found starting from '{start_node}'.")
+    print(f"\nGoal '{goal_node}' found starting from '{start_node}'.")
 else:
     print(f"Goal '{goal_node}' not found starting from '{start_node}'.")
